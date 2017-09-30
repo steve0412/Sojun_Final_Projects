@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,7 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">#fff000</item>
+        <item name="android:statusBarColor">#FEE40A</item>
+        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="colorControlActivated">#FEE40A</item>
+        <item name="colorControlNormal">#FEE40A</item>
+        <item name="android:textColorHint">#3B3B3B</item>
 
     </style>
 </resources>
