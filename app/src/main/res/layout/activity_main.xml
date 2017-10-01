@@ -26,7 +26,7 @@
         <EditText
             android:textColor="#ffffff"
             android:gravity="center"
-            android:id="@+id/edit1"
+            android:id="@+id/edit_start"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColorHint="#ffffff"
@@ -51,7 +51,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:textColorHint="#ffffff"
-            android:id="@+id/edit2"
+            android:id="@+id/edit_end"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="ex) 서울역"/>
@@ -61,11 +61,11 @@
 
 
     <ImageButton
-        android:onClick="forme"
+        android:id="@+id/to_me"
         android:layout_marginTop="30dp"
-        android:background="@drawable/me_appicon_kr"
+        android:src="@drawable/me_appicon_kr"
+        android:padding="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 
 </LinearLayout>
