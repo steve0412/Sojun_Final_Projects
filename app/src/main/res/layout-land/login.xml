@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#292929"
     android:gravity="center"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
 
-    <ImageButton
-        android:onClick="loginClicked"
-        android:layout_marginTop="150dp"
-        android:layout_centerVertical="true"
+    <com.kakao.usermgmt.LoginButton
         android:id="@+id/kakaologin"
-        android:padding="0dp"
-        android:src="@drawable/kakao_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="150dp"
+        android:paddingBottom="15dp"
+        />
 
     <ImageView
-        android:paddingBottom="20dp"
-        android:layout_marginLeft="7dp"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/kakao"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="75dp"
+        android:paddingBottom="20dp"
+        android:src="@drawable/kakao" />
 
 </RelativeLayout>
