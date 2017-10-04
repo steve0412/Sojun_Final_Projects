@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.KakaoSDK;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
@@ -25,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     private com.kakao.usermgmt.LoginButton btnKakao;
     private SessionCallback callback;
     long pressTime;
+    public KakaoSDK KakaoTalkResponseCallback;
+    public KakaoSDK getProfileImageURL;
 
     @Override
     public void onBackPressed() {
@@ -36,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(this, "한 번 더 누르시면 앱이 종료됩니다", Toast.LENGTH_LONG).show();
         pressTime = System.currentTimeMillis();
     }
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
