@@ -22,6 +22,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+
 public class MainActivity extends AppCompatActivity {
 
     String start, end;
@@ -109,11 +111,11 @@ public class MainActivity extends AppCompatActivity {
                     KakaoTalkService.requestSendMemo(new LoginActivity().KakaoTalkResponseCallback<Boolean>() {
                         public void onSuccess(Boolean String result; result) {
                             Logger.d("send message to my chatroom : " + result);
+                             }
                         }
-                    }
-                , "6019"
+                            , "6019"
                             , builder.build());
-                }
+            }
 
             }
         });
