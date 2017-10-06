@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 vibe.vibrate(300);
+
                 overridePendingTransition(R.anim.start_enter, R.anim.start_enter);
                 finish();
 
