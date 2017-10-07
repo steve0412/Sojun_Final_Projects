@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 startActivity(intent);
 
+                // 앙기모띠
+
             }
         });
 
