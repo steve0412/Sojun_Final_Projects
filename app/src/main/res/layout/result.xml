@@ -13,6 +13,7 @@
         android:layout_marginBottom="50dp">
 
         <TextView
+            android:id="@+id/toto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="000 --> 000"
@@ -72,6 +73,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/shtTm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -81,6 +83,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/minTm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -102,6 +105,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/shtTransfer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -111,6 +115,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/minTransfer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -131,6 +136,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/shtStatn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -140,6 +146,7 @@
                     android:textSize="21dp" />
 
                 <TextView
+                    android:id="@+id/minStatn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"

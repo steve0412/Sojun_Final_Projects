@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('volley_1.0.18.jar'))
