@@ -73,22 +73,22 @@
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/shtTm"
+                    android:id="@+id/shtTm_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/minTm"
+                    android:id="@+id/minTm_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
             </TableRow>
@@ -105,22 +105,22 @@
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/shtTransfer"
+                    android:id="@+id/shtTransfer_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/minTransfer"
+                    android:id="@+id/minTransfer_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
             </TableRow>
@@ -136,22 +136,22 @@
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/shtStatn"
+                    android:id="@+id/shtStatn_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
 
                 <TextView
-                    android:id="@+id/minStatn"
+                    android:id="@+id/minStatn_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="#ffffff"
                     android:textSize="21dp" />
             </TableRow>
