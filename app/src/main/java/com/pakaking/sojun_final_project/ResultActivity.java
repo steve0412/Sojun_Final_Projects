@@ -15,8 +15,6 @@ import com.kakao.kakaotalk.callback.TalkResponseCallback;
 import com.kakao.network.ErrorResult;
 import com.kakao.util.helper.log.Logger;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,13 +43,15 @@ public class ResultActivity extends AppCompatActivity {
     private String end_station;
     private List<ShortestRouteList> stationList;
 
+
     private TextView sht_Tm;
     private TextView min_Tm;
     private TextView sht_Transfer;
     private TextView min_Transfer;
     private TextView sht_Statn;
     private TextView min_Statn;
-    private String kakaoMsg;
+    public String message;
+    public String to_to;
 
 
     @Override
@@ -66,11 +66,9 @@ public class ResultActivity extends AppCompatActivity {
         sht_Statn = (TextView) findViewById(shtStatn_);
         min_Statn = (TextView) findViewById(minStatn_);
 
-
         Intent intent = getIntent();
         String start = intent.getStringExtra("출발역");
         String end = intent.getStringExtra("도착역");
-
 
         apiKey = "4e53584864746c7334355254446672";
         start_station = start;
@@ -79,7 +77,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView to_to = (TextView) findViewById(toto);
         to_to.setText(start + "역  --->  " + end + "역");
 
-         setStnListAPI(apiKey, start_station, end_station);
+        setStnListAPI(apiKey, start_station, end_station);
 
         ImageButton tome = (ImageButton) findViewById(R.id.to_me);
 
@@ -92,9 +90,6 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
     public void setStnListAPI(String apiKey, final String start_station, final String end_station) {
 
@@ -113,7 +108,8 @@ public class ResultActivity extends AppCompatActivity {
                     min_Transfer.setText(stationList.get(0).getMinTransferCnt() + "번");
                     sht_Statn.setText(stationList.get(0).getShtStatnCnt() + "개");
                     min_Statn.setText(stationList.get(0).getMinStatnCnt() + "개");
-                    kakaoMsg = stationList.get(0).getMinTravelMsg();
+                    message = stationList.get(0).getMinTravelMsg();
+                    //kakaoMsg = response.body().getShortestRouteList().get(0).getMinTravelMsg();
                 } else {
                     Log.v("SearchActivity", start_station);
                     Log.v("SearchActivity2", end_station);
@@ -131,12 +127,9 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void requestSendMemo() {
-        String message = kakaoMsg;
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("''yy년 MM월 dd일 E요일");
         KakaoTalkMainActivity.KakaoTalkMessageBuilder builder = new KakaoTalkMainActivity.KakaoTalkMessageBuilder();
-        builder.addParam("MESSAGE", message);
-        builder.addParam("DATE", sdf.format(date));
+        builder.addParam("msg_train", message);
+        builder.addParam("toto_train", to_to);
 
         KakaoTalkService.requestSendMemo(new KakaoTalkMainActivity.KakaoTalkResponseCallback<Boolean>() {
                                              @Override
@@ -144,7 +137,7 @@ public class ResultActivity extends AppCompatActivity {
                                                  Logger.d("send message to my chatroom : " + result);
                                              }
                                          }
-                , "6019" // templateId
+                , "6019"
                 , builder.build());
     }
 
@@ -162,8 +155,6 @@ public class ResultActivity extends AppCompatActivity {
                 return messageParams;
             }
         }
-
-
 
         private void redirectLoginActivity() {
             Intent intent = new Intent(this, KakaoTalkLoginActivity.class);
@@ -200,6 +191,4 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }

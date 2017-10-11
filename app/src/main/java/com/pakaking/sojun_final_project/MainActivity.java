@@ -1,19 +1,11 @@
 package com.pakaking.sojun_final_project;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.kakao.kakaotalk.callback.TalkResponseCallback;
-import com.kakao.network.ErrorResult;
-import com.kakao.util.helper.log.Logger;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.pakaking.sojun_final_project.R.id.check;
 
@@ -44,61 +36,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-    public class KakaoTalkMainActivity extends Activity {
-        private void redirectLoginActivity() {
-            Intent intent = new Intent(this, KakaoTalkLoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-        private class KakaoTalkLoginActivity {
-        }
-
-        private abstract class KakaoTalkResponseCallback<T> extends TalkResponseCallback<T> {
-
-
-            @Override
-            public void onNotKakaoTalkUser() {
-                Logger.w("not a KakaoTalk user");
-            }
-
-            @Override
-            public void onFailure(ErrorResult errorResult) {
-                Logger.e("failure : " + errorResult);
-            }
-
-            @Override
-            public void onSessionClosed(ErrorResult errorResult) {
-                redirectLoginActivity();
-            }
-
-            @Override
-            public void onNotSignedUp() {
-                redirectSignupActivity();
-            }
-
-            private void redirectSignupActivity() {
-            }
-        }
-    }
-
-
-
-    class KakaoTalkMessageBuilder {
-        public Map<String, String> messageParams = new HashMap<String, String>();
-
-        public KakaoTalkMessageBuilder addParam(String key, String value) {
-            messageParams.put("${" + key + "}", value);
-            return this;
-        }
-
-        public Map<String, String> build() {
-            return messageParams;
-        }
-    }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
