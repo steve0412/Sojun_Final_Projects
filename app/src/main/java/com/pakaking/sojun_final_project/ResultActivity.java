@@ -10,6 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kakao.auth.ApiResponseCallback;
+import com.kakao.auth.AuthService;
+import com.kakao.auth.network.response.AccessTokenInfoResponse;
 import com.kakao.kakaotalk.KakaoTalkService;
 import com.kakao.kakaotalk.callback.TalkResponseCallback;
 import com.kakao.network.ErrorResult;
@@ -23,6 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.kakao.auth.AuthService.requestAccessTokenInfo;
 import static com.pakaking.sojun_final_project.R.id.minStatn_;
 import static com.pakaking.sojun_final_project.R.id.minTm_;
 import static com.pakaking.sojun_final_project.R.id.minTransfer_;
@@ -143,17 +147,34 @@ public class ResultActivity extends AppCompatActivity {
 
     public static class KakaoTalkMainActivity extends Activity {
 
-        public static class KakaoTalkMessageBuilder {
-            public Map<String, String> messageParams = new HashMap<String, String>();
 
-            public KakaoTalkMessageBuilder addParam(String key, String value) {
-                messageParams.put("${" + key + "}", value);
-                return this;
-            }
 
-            public Map<String, String> build() {
-                return messageParams;
-            }
+        private void requestAccessTokenInfo(ApiResponseCallback<AccessTokenInfoResponse> apiResponseCallback) {
+            requestAccessTokenInfo(new ApiResponseCallback<AccessTokenInfoResponse>() {
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    redirectLoginActivity();
+                }
+
+                @Override
+                public void onNotSignedUp() {
+                    // not happened
+                }
+
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    Logger.e("failed to get access token info. msg=" + errorResult);
+                }
+
+                @Override
+                public void onSuccess(AccessTokenInfoResponse accessTokenInfoResponse) {
+                    long userId = accessTokenInfoResponse.getUserId();
+                    Logger.d("this access token is for userId=" + userId);
+
+                    long expiresInMilis = accessTokenInfoResponse.getExpiresInMillis();
+                    Logger.d("this access token expires after " + expiresInMilis + " milliseconds.");
+                }
+            });
         }
 
         private void redirectLoginActivity() {
@@ -188,6 +209,19 @@ public class ResultActivity extends AppCompatActivity {
             }
 
             private void redirectSignupActivity() {
+            }
+        }
+
+        public static class KakaoTalkMessageBuilder {
+            public Map<String, String> messageParams = new HashMap<String, String>();
+
+            public KakaoTalkMessageBuilder addParam(String key, String value) {
+                messageParams.put("${" + key + "}", value);
+                return this;
+            }
+
+            public Map<String, String> build() {
+                return messageParams;
             }
         }
     }

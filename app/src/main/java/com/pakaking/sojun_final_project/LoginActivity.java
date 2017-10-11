@@ -57,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         com.kakao.auth.Session.getCurrentSession().checkAndImplicitOpen();
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
@@ -115,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
 
